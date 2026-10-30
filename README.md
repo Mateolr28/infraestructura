@@ -8,7 +8,7 @@ API que conecta a las personas que **pierden** sus documentos con las personas q
 
 ## Requisitos
 
-- Node.js 20 o superior.
+- Node.js 22 o superior.
 - La aplicación no tiene dependencias de producción; `npm install` solo instala las herramientas de pruebas.
 
 ## Cómo ejecutar
@@ -50,8 +50,8 @@ tests/
 
 `.github/workflows/tests.yml` se ejecuta en cada *push* a `main`/`master`/`develop`, en cada *pull request* y manualmente:
 
-1. **Unitarias** en Node 20 y 22.
-2. **Integración** en Node 20 y 22 (solo si pasan las unitarias).
+1. **Unitarias** en Node 22 y 24.
+2. **Integración** en Node 22 y 24 (solo si pasan las unitarias).
 3. **Cobertura**: corre todo con cobertura, publica una tabla en el resumen del workflow y sube el reporte HTML como artefacto (`coverage-report`).
 
 Recomendado: haz `npm install` localmente y sube el `package-lock.json` al repositorio; así el workflow usa `npm ci` (instalaciones reproducibles).
