@@ -1,0 +1,42 @@
+### Peticiones de ejemplo (extensión "REST Client" de VS Code o IntelliJ)
+@base = http://localhost:3000
+
+### 1. Alguien ve una cédula olvidada en una droguería y la registra
+POST {{base}}/api/documentos
+Content-Type: application/json
+
+{
+  "documentNumber": "1.020.345.678",
+  "documentType": "CEDULA_CIUDADANIA",
+  "holderName": "Ana Pérez",
+  "location": {
+    "placeName": "Droguería La Esquina",
+    "address": "Calle 10 # 5-20",
+    "city": "Bogotá",
+    "reference": "Lo tiene la cajera"
+  },
+  "notes": "Estaba junto a la caja registradora"
+}
+
+### 2. La dueña busca su documento con su número
+GET {{base}}/api/documentos?numero=1020345678
+
+### 3. Ver un reporte por id (reemplaza el id)
+GET {{base}}/api/documentos/REEMPLAZAR_ID
+
+### 4. Marcar como recuperado
+PATCH {{base}}/api/documentos/REEMPLAZAR_ID/recuperado
+Content-Type: application/json
+
+{
+  "documentNumber": "1020345678"
+}
+
+### 5. Error de validación (falta la ubicación)
+POST {{base}}/api/documentos
+Content-Type: application/json
+
+{
+  "documentNumber": "52123456",
+  "documentType": "PASAPORTE"
+}
